@@ -141,7 +141,7 @@ class MainWindow3(QMainWindow, QDialog) :
         
         
         label = QLabel(self)
-        pixmap = QPixmap('image.jpeg')
+        pixmap = QPixmap('image.JPG')
         label.setPixmap(pixmap)
         
         self.pushButton1 = QPushButton("Plot")
