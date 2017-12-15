@@ -155,7 +155,7 @@ class MainWindow3(QMainWindow, QDialog) :
     
         
         self.tabs.addTab(self.tab1,"Edit Architecture")
-        self.tabs.addTab(self.tab2,"step response")
+        self.tabs.addTab(self.tab2,"Step Response")
         self.tabs.addTab(self.tab3,"Bode Plot")
         self.tabs.addTab(self.tab4,"Rootlocus")
         
@@ -200,17 +200,17 @@ class MainWindow3(QMainWindow, QDialog) :
         
         
         self.tab3.layout = QGridLayout(self)
-        self.tab3.layout.addWidget(self.plot2,1,0,4,4)
+        self.tab3.layout.addWidget(self.plot2,1,0,5,5)
 #        self.tab2.layout.addWidget(combo)
-        self.tab3.layout.addWidget(self.label10,5,0)  
-        self.tab3.layout.addWidget(self.label12,6,0)
-        self.tab3.layout.addWidget(self.gm_edit,6,1)
-        self.tab3.layout.addWidget(self.label13,7,0)
-        self.tab3.layout.addWidget(self.pm_edit,7,1)
-        self.tab3.layout.addWidget(self.label14,8,0)
-        self.tab3.layout.addWidget(self.gc_edit,8,1)
-        self.tab3.layout.addWidget(self.label15,9,0)
-        self.tab3.layout.addWidget(self.pc_edit,9,1)
+        self.tab3.layout.addWidget(self.label10,6,0)  
+        self.tab3.layout.addWidget(self.label12,7,0)
+        self.tab3.layout.addWidget(self.gm_edit,7,1)
+        self.tab3.layout.addWidget(self.label13,8,0)
+        self.tab3.layout.addWidget(self.pm_edit,8,1)
+        self.tab3.layout.addWidget(self.label14,9,0)
+        self.tab3.layout.addWidget(self.gc_edit,9,1)
+        self.tab3.layout.addWidget(self.label15,10,0)
+        self.tab3.layout.addWidget(self.pc_edit,10,1)
         
         
         self.tab3.setLayout(self.tab3.layout)
@@ -485,12 +485,12 @@ class MatplotlibCanvas2(FigureCanvas) :
         y = x**2
         y1 = x**3
         self.axes1.plot(x, y)
-        self.axes1.set_xlabel('Frequency(rad/s)')
-        self.axes1.set_ylabel('Magnitude(dB') 
+        self.axes1.set_xlabel('Frequency(rad/s)', fontsize = 8)
+        self.axes1.set_ylabel('Magnitude(dB)', fontsize = 8) 
         
         self.axes2.plot(x, y1)
-        self.axes2.set_xlabel('Frequency(rad/s)')
-        self.axes2.set_ylabel('Phase(deg)') 
+        self.axes2.set_xlabel('Frequency(rad/s)', fontsize = 8)
+        self.axes2.set_ylabel('Phase(deg)', fontsize = 8) 
 #        self.axes.legend("Plant","Whole System")
 
         # Now do the initialization of the super class
@@ -509,14 +509,15 @@ class MatplotlibCanvas2(FigureCanvas) :
         mag= 20* np.log10(mag)
         self.axes1.clear()
         self.axes2.clear()
-        self.axes1.set_ylabel('Magnitude(dB') 
+        self.axes1.set_ylabel('Magnitude(dB)', fontsize = 8) 
 
-        self.axes2.set_xlabel('Frequency(rad/s)')
-        self.axes2.set_ylabel('Phase(deg)') 
+        self.axes2.set_xlabel('Frequency(rad/s)', fontsize = 8)
+        self.axes2.set_ylabel('Phase(deg)', fontsize = 8) 
         self.axes1.semilogx(om, mag)
         self.axes2.semilogx(om, ph)   
         self.axes1.grid(True,which= "both",ls = "-")
         self.axes2.grid(True,which= "both",ls = "-")
+        self.axes2.set_yticks(np.arange(-270,180,90))
         self.draw()
 
         
